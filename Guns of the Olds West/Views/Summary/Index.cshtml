@@ -1,0 +1,40 @@
+﻿@model PartyModel
+@{
+    ViewData["Title"] = "Summary Page";
+    Layout = "_Layout";
+}
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<div class="container-fluid vertical-center">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="wildWestFont">Summary of the party</h1>
+        </div>
+        <br />
+        <h4>Party played by : @Model.FirstName @Model.LastName</h4>
+        <h4>Money spent : @Model.MoneySpent</h4>
+        <h4>Player's cellphone number : @Model.Phone</h4>
+        <h4>Player's email : @Model.Email</h4>
+        <h4>Date of the party : @Model.Email</h4>
+        <hr class="hr" />
+        <h2 class="text-center">About the Author of this page</h2>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <img src="~/images/author.jpg" class="img-thumbnail authorImage" alt="Tom Douaud" />
+            </div>
+             <div class="col-12 col-md-8">
+                <p>
+                    Tom Douaud, a french student in IT since 2 years at the Rodez University<br />
+                    I'm a big fan of 70's music (Frank Zappa, Led Zeppelin, Black Sabbath, etc...) and late 90's retrogaming (Doom II, Half-life and Blood are my favorites)<br />
+                    This is a asignement for the ASP.NET course<br />
+                </p>
+            </div>
+        </div>
+        <hr class="hr" />
+        <form action="@Url.Action("RestartGame", "Summary")" method="post">
+            <button type="submit">Restart the game</button>
+        </form>
+    </div>
+</div>
+

@@ -4,12 +4,12 @@ using System.Diagnostics;
 
 namespace Guns_of_the_Olds_West.Controllers
 {
-    public class HomeController : Controller
+    public class ReloadController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private PartyModel model;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ReloadController(ILogger<HomeController> logger)
         {
             _logger = logger;
             model = PartyModel.getInstance();
@@ -20,26 +20,24 @@ namespace Guns_of_the_Olds_West.Controllers
             return View(this.model);
         }
 
-        [HttpPost]
-        public IActionResult Shoot()
+        public IActionResult Reload(int numberOfBulletToReload)
         {
-            if (this.model.BulletsRemaining == 0)
+
+            switch (numberOfBulletToReload)
             {
-                return RedirectToAction("Index", "Reload");
+                case 2:
+                    model.Reload2();
+                    break;
+                case 7:
+                    model.Reload7();
+                    break;
+                case 12:
+                    model.Reload12();
+                    break;
             }
-            else
-            {
-                model.Shoot();
-                if (this.model.numberPicked < 4)
-                {
-                    return RedirectToAction("Index", "Winner");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+            return RedirectToAction("Index", "Home");
         }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

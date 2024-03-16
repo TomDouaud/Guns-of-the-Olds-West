@@ -1,0 +1,30 @@
+﻿@model PartyModel
+@{
+    ViewData["Title"] = "Reload Page";
+    Layout = "_Layout";
+}
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<div class="container-fluid vertical-center">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="wildWestFont">Reload Page</h1>
+            <br />
+            <form action ="@Url.Action("Reload", "Reload")" method="post">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <button type="submit" name="numberOfBulletToReload" value="2">Buy 2 bullets for €1</button>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <button type="submit" name="numberOfBulletToReload" value="7">Buy 7 bullets for €4</button>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <button type="submit" name="numberOfBulletToReload" value="12">Buy 12 bullets for €7</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

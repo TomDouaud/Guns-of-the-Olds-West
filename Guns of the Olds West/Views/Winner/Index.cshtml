@@ -1,0 +1,42 @@
+﻿@model PartyModel
+@{
+    ViewData["Title"] = "Winner Page";
+    Layout = "_Layout";
+}
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<div class="container-fluid vertical-center">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="wildWestFont">Sniper !</h1>
+            <br />
+            <form action="@Url.Action("SendData", "Winner")" method="post">
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>            
+                
+                <br />
+                <input type="submit" class="btn btn-success" value="Submit">
+             </form>
+             <br />
+             <form action="@Url.Action("Index", "Home")" method="post">
+                <input type="submit" class="btn btn-primary" value="Return to the Main page">
+             </form>
+        </div>
+    </div>
+</div>
+
